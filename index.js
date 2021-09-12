@@ -1,6 +1,7 @@
 import fetch from 'node-fetch'
 import dotenv from 'dotenv'
 dotenv.config();
+import fs from 'fs'
 
 // Badge code
 const Discord_Employee = 1;
@@ -42,8 +43,6 @@ const response = await fetch(`https://discord.com/api/v9/users/${id}`, {
 if (!response.ok) throw new Error(`Error status code: ${response.status}`)
 
 let user = await response.json();
-
-//console.log(user);
 
 const flags = user.public_flags;
 
@@ -150,4 +149,22 @@ let data = [
     `Banner color: ${bannerColor}`
 ];
 
-console.log(data);
+// Write the array in a text file
+let writeStream = fs.createWriteStream('./users.txt');
+let pathName = writeStream.path;
+
+// write each value of the array on the file breaking line
+data.forEach(value => writeStream.write(`${value}\n`));
+
+// the finish event is emitted when all data has been flushed from the stream
+writeStream.on('finish', () => {
+    console.log(`Successfully wrote to file: ${pathName}`);
+ });
+ 
+ // handle the errors on the write process
+ writeStream.on('error', (err) => {
+     console.error(`There was an error writing in the file ${pathName} => ${err}`)
+ });
+ 
+ // close the stream
+ writeStream.end();
