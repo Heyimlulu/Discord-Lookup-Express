@@ -1,17 +1,32 @@
-# Discord-API-Users
+# Discord API Users
 
 Retrieve some informations about a user from his ID
 
 # Getting started
 
-- Create an application in the [Discord Developer Portal](https://discord.com/developers/applications)
-- Go the bot section and add a bot
-- Copy your Bot Token
-- Rename `.env-example` to `.env`
-- Paste your Bot Token
-- Copy & Paste a valid userID before running the script
+## Prerequisites
 
-# Running
+- Install Node.js on your computer
+- Create an application in the [Discord Developer Portal](https://discord.com/developers/applications)
+  - Go the bot section and create a new bot
+  - Copy your bot token 
+
+## Installing
+
+```
+npm install
+```
+
+## Running
+
+- Rename `.env-example` to `.env`
+  - Replace `*` with your bot token
+
+```
+TOKEN=****************
+```
+
+Now you can run the script with
 
 ```
 npm start or node index.js
