@@ -31,3 +31,7 @@ Now you can run the script with
 ```
 npm start or node index.js
 ```
+
+# Aknowledgements
+
+- [Discord](https://discord.com/developers/docs/intro) for their docs.
