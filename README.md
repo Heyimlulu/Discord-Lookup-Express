@@ -1,4 +1,4 @@
-# Discord Fetch Users API
+# Discord Users API
 
 Retrieve some informations about a user from his ID
 
