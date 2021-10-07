@@ -1,13 +1,13 @@
 {
-  "name": "discord-api-users",
+  "name": "discord-lookup",
   "version": "1.0.0",
-  "description": "",
+  "description": "Lookup a Discord User or Bot ID.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Lucas",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.22.0",
