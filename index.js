@@ -1,7 +1,6 @@
 import axios from 'axios'
 import dotenv from 'dotenv'
 dotenv.config();
-import fs from 'fs'
 
 const badges = [
     ["Discord_Employee", 1 << 0],
@@ -34,11 +33,9 @@ const flags = response.data.public_flags;
 let array = [];
 
 // Avatar URL
-let avatar;
 if (data.avatar != null) array.push(`Avatar: https://cdn.discordapp.com/avatars/${id}/${data.avatar}`);
 
 // Banner URL
-let banner;
 if (data.banner != null) array.push(`Banner: https://cdn.discordapp.com/banners/${id}/${data.banner}`);
 
 // User ID, Username and Discriminator
@@ -46,17 +43,20 @@ array.push(`User ID: ${id}`, `Username: ${data.username}#${data.discriminator}`)
 
 // Badges
 let badge = [];
+
 for (let i = 0; i < badges.length; i++) {
     if ((flags & badges[i][1]) == badges[i][1]){
-        badge.push(badges[i][0].replace('_', ' '));
+        badge.push(badges[i][0]);
     }
 }
+
+// IF => Is Bot and doesn't have the verified badge, then add the default Bot badge
+if (!badge.includes('Verified_Bot') && data.bot) badge.push('Bot');
 
 // Push badges in current array
 array.push(badge);
 
 // Banner color
-let bannerColor;
 if (data.banner_color != null) array.push(`Banner Color: ${data.banner_color}`);
 
 console.log(array);
