@@ -30,6 +30,10 @@ npm start or node index.js
 ]
 ```
 
+# Badges
+
+You can find all used Official Discord badges for this project in SVG and PNG files. (Discord Nitro, boosting server and partner badges are not available)
+
 # Aknowledgements
 
-- [Discord](https://discord.com/developers/docs/intro) for their docs.
+- [Discord](https://discord.com/developers/docs/resources/user#users-resource) for their docs and assets.

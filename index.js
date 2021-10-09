@@ -22,7 +22,7 @@ const badges = [
 const id = '265896171384340480';
 
 // API call
-const response = await axios.get(`https://discord.com/api/users/${id}`, {
+const response = await axios.get(`https://discord.com/api/v9/users/${id}`, {
     headers: {
         Authorization: `Bot ${process.env.TOKEN}`
     }
@@ -52,7 +52,8 @@ for (let i = 0; i < badges.length; i++) {
     }
 }
 
-array.push(badge); // <= Push badge in current array
+// Push badges in current array
+array.push(badge);
 
 // Banner color
 let bannerColor;

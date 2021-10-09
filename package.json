@@ -13,5 +13,14 @@
     "axios": "^0.22.0",
     "dotenv": "^10.0.0"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Heyimlulu/Discord-Lookup.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Heyimlulu/Discord-Lookup/issues"
+  },
+  "homepage": "https://github.com/Heyimlulu/Discord-Lookup#readme"
 }
