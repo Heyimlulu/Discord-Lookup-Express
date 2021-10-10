@@ -32,7 +32,7 @@ npm start or node index.js
 
 # Badges
 
-You can find all used Official Discord badges for this project in SVG and PNG files. (Discord Nitro, boosting server and partner badges are not available)
+You can find all used Official Discord badges for this project in SVG files. (Discord Nitro, boosting server and partner badges are not available)
 
 # Aknowledgements
 
