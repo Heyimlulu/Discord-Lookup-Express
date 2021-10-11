@@ -33,6 +33,7 @@ npm start or node index.js
 # Badges
 
 You can find all used Official Discord badges for this project in SVG files. (Discord Nitro, boosting server and partner badges are not available)
+- Bot and Verified Bot badges may look different because they doesn't exist in the official Discord assets
 
 # Aknowledgements
 
