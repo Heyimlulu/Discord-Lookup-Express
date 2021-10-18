@@ -2,7 +2,7 @@ import axios from 'axios'
 import dotenv from 'dotenv'
 dotenv.config();
 
-const badges = [
+const badgesList = [
     ["Discord_Employee", 1 << 0],
     ["Partnered_Server_Owner", 1 << 1],
     ["HypeSquad_Events", 1 << 2],
@@ -18,45 +18,53 @@ const badges = [
     ["Discord_Certified_Moderator", 1 << 18]
 ]
 
-const id = '265896171384340480';
-
 // API call
-const response = await axios.get(`https://discord.com/api/v9/users/${id}`, {
+const response = await axios.get(`https://discord.com/api/v9/users/265896171384340480`, {
     headers: {
         Authorization: `Bot ${process.env.TOKEN}`
     }
 })
 
 const data = response.data;
-const flags = response.data.public_flags;
 
-let array = [];
+// Destructuring fetched datas
+const { id, username, avatar, banner, banner_color, public_flags, discriminator, bot } = data;
 
 // Avatar URL
-if (data.avatar != null) array.push(`Avatar: https://cdn.discordapp.com/avatars/${id}/${data.avatar}`);
+let avatarURL;
+if (avatar) avatarURL = `https://cdn.discordapp.com/avatars/${id}/${avatar}`;
 
 // Banner URL
-if (data.banner != null) array.push(`Banner: https://cdn.discordapp.com/banners/${id}/${data.banner}`);
-
-// User ID, Username and Discriminator
-array.push(`User ID: ${id}`, `Username: ${data.username}#${data.discriminator}`);
+let bannerURL;
+if (banner) bannerURL = `https://cdn.discordapp.com/banners/${id}/${banner}`;
 
 // Badges
-let badge = [];
+let badges = [];
 
-for (let i = 0; i < badges.length; i++) {
-    if ((flags & badges[i][1]) == badges[i][1]){
-        badge.push(badges[i][0]);
+for (let i = 0; i < badgesList.length; i++) {
+    if ((public_flags & badgesList[i][1]) == badgesList[i][1]) {
+        badges.push(badgesList[i][0]);
     }
 }
 
 // IF => Is Bot and doesn't have the verified badge, then add the default Bot badge
-if (!badge.includes('Verified_Bot') && data.bot) badge.push('Bot');
+if (!badges.includes('Verified_Bot') && bot) badges.push('Bot');
 
-// Push badges in current array
-array.push(badge);
+// Converts a snowflake ID into a JavaScript Date object using the Discord's epoch (in ms)
+const timestamp = ((id / 4194304) + 1420070400000);
 
-// Banner color
-if (data.banner_color != null) array.push(`Banner Color: ${data.banner_color}`);
+// Date format
+const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
 
-console.log(array);
+let result = {
+    "id": parseInt(id),
+    "username": `${username}#${discriminator}`,
+    "avatar": avatarURL,
+    "banner": bannerURL,
+    "bannerColor": banner_color,
+    "badges": badges,
+    "timestamp": timestamp,
+    "creationDate": new Date(timestamp).toLocaleString('en-US', options)
+}
+
+console.log(result);

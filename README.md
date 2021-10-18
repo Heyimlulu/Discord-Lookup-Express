@@ -20,14 +20,16 @@ npm start or node index.js
 # Example output
 
 ```
-[
-  'Avatar: https://cdn.discordapp.com/avatars/265896171384340480/a_3bcdf229b9e6a27deabc5a60e1dde3f2',
-  'Banner: https://cdn.discordapp.com/banners/265896171384340480/a_0a7a2f5f0771903b97ac6f1971be6545',
-  'User ID: 265896171384340480',
-  'Username: Slimey#0667',
-  [ 'House Bravery', 'Early Supporter' ],
-  'Banner Color: #8f7cff'
-]
+{
+  id: 265896171384340480,
+  username: 'Slimey#0667',
+  avatar: 'https://cdn.discordapp.com/avatars/265896171384340480/a_f33a32c8e44b8c0246e5433b8c0edb65',
+  banner: 'https://cdn.discordapp.com/banners/265896171384340480/a_70de5d8e8c59a6ae588eca92fc0d58ff',
+  bannerColor: '#8f7cff',
+  badges: [ 'House_Bravery', 'Early_Supporter' ],
+  timestamp: 1483464987370,
+  creationDate: 'Tuesday, January 3, 2017, 6:36 PM'
+}
 ```
 
 # Badges
