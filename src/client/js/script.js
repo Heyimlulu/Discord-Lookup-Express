@@ -5,8 +5,6 @@ button.click(() => {
     let reg = new RegExp('^([0-9]{16,})$');
     let value = input[0].value;
 
-    console.log(value);
-
     if (value.match(reg)) {
         sendRequest(value)
     } else {
