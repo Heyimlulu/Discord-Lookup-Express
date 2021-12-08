@@ -1,5 +1,5 @@
 
-.env
+src/server/.env
 node_modules/
 .idea/
 *.iml

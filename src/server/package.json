@@ -11,10 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.22.0",
-    "dotenv": "^10.0.0"
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
   },
   "type": "module",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Heyimlulu/Discord-Lookup.git"
