@@ -86,8 +86,8 @@ async function getData (data) {
         "banner": bannerURL,
         "bannerColor": banner_color,
         "badges": badges,
-        "timestamp": timestamp,
-        "creationDate": new Date(timestamp).toLocaleString('en-US', options)
+        "timestamp": Math.round(new Date(timestamp).getTime() / 1000),
+        "creationDate": new Date(timestamp).toUTCString()
     }
 
     return array;

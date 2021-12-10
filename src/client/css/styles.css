@@ -130,7 +130,12 @@ body {
 .input:focus {
     outline: 2.5px solid #5865F2;
 }
-
+.error {
+    outline: 2.5px solid red;
+}
+form {
+    display: grid;
+}
 @media (min-width: 87.5rem) {
     .container:hover {
         transform: scale(1.02);
